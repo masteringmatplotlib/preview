@@ -1,4 +1,4 @@
-# preview
+# A Preview IPython Notebook
 
 ## Instructions
 
