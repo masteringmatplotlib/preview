@@ -14,3 +14,5 @@ run:
 	pyvenv $(VENV) && \
 	ipython notebook notebooks/mmpl-preview.ipynb
 
+clean:
+	rm -rf $(VENV)
