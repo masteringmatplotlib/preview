@@ -1,19 +1,32 @@
 VENV=.venv
 PYTHON=$(shell which python3.4)
 
-system-deps:
+system-deps-py2:
 	pip3.4 install virtualenv
 
-virtual-env:
+virtual-env-py2:
 	VIRTUALENV_PYTHON=$(PYTHON) virtualenv $(VENV)
 
-project-deps:
+virtual-env:
+	$(PYTHON) -m venv $(VENV)
+
+project-deps-py2:
 	. $(VENV)/bin/activate && \
 	pip3.4 install -r requirements.txt
 
-setup: system-deps virtual-env project-deps
+project-deps:
+	pyvenv $(VENV) && \
+	pip3.4 install -r requirements.txt
+
+setup-py2: system-deps virtual-env project-deps
+
+setup: virtual-env project-deps
+
+run-py2:
+	. $(VENV)/bin/activate && \
+	ipython notebook notebooks/mmpl-preview.ipynb
 
 run:
-	. $(VENV)/bin/activate && \
+	pyvenv $(VENV) && \
 	ipython notebook notebooks/mmpl-preview.ipynb
 
