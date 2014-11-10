@@ -1,0 +1,7 @@
+axes.facecolor: white
+
+figure.facecolor: white
+figure.edgecolor: white
+
+savefig.facecolor: white
+savefig.edgecolor: white
