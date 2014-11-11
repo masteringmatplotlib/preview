@@ -22,4 +22,5 @@ setup:
 	@make project-setup
 
 .DEFAULT_GOAL :=
-default: setup run
+default: setup
+	make run
