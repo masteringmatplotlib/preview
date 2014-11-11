@@ -4,10 +4,22 @@ NOTEBOOK=notebooks/mmpl-preview.ipynb
 
 -include include/common.mk
 
-$(INCLUDE_DIR):
+# The following target is intended for use by project-creators only. When
+# creating a new notebook project, add a copy of this Makefile and run this
+# target to get the includes set up:
+#
+# $ make setup-submodule
+setup-submodule:
 	git submodule add $(INCLUDE_REPO) $(INCLUDE_DIR)
 
+# The 'setup' target needs to be run before the 'project-deps' target,
+# so that the includes are present (done by 'make project-setup').
 deps: project-deps
 
-setup: $(INCLUDE_DIR)
-	make project-setup
+setup:
+	@git submodule init
+	@git submodule update
+	@make project-setup
+
+.DEFAULT_GOAL :=
+default: setup run
