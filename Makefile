@@ -15,7 +15,7 @@ setup-submodule:
 
 # The 'setup' target needs to be run before the 'project-deps' target,
 # so that the includes are present (done by 'make project-setup').
-deps: project-deps
+deps: base-deps
 
 setup:
 	@git submodule init
