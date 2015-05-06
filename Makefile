@@ -1,4 +1,4 @@
-INCLUDE_REPO=git@github.com:masteringmatplotlib/includes.git
+INCLUDE_REPO=https://github.com/masteringmatplotlib/includes.git
 INCLUDE_DIR=include
 NAME=preview
 NOTEBOOK=notebooks/mmpl-$(NAME).ipynb
